@@ -1,0 +1,18 @@
+#include <ESP32Servo.h>
+
+Servo myservo;  // create servo object to control a servo
+
+int pos = 0;    // variable to store the servo position
+
+void setup() {
+  myservo.attach(4);  // attaches the servo on pin 9 to the servo object
+}
+
+void loop() {
+   myservo.write(0);    //Poistion to 0 degree
+   delay(500);          // delay of 500ms
+   myservo.write(90);   //Poistion to 90 degree
+   delay(500);          // delay of 500ms
+   myservo.write(180);  //Postion to 180 degree
+   delay(500);;         // delay of 500ms
+}
