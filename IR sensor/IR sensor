@@ -1,0 +1,28 @@
+/*
+  Interfacing IR sensor
+
+  Turns an LED on when the IR sensor detects objects
+
+*/
+#define LEDBUILTIN 2
+#define IRsensor 5
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  
+  pinMode(LEDBUILTIN, OUTPUT);     // initialize digital pin LED_BUILTIN as an output.
+  pinMode(IRsensor, INPUT);         // initialize digital pin IR ssensor as an input.
+}
+
+// the loop function runs over and over again forever
+void loop() {
+  int sensorValue = digitalRead(IRsensor);
+  
+  if (sensorValue == 1) { // Check if sensorValue is equal to 1 (object detected)
+    digitalWrite(LEDBUILTIN, LOW); // turn the LED on (HIGH is the voltage level)
+    delay(100);                     // wait for a second
+  } else {
+    digitalWrite(LEDBUILTIN, HIGH); // turn the LED off
+    delay(100);
+  }  
+}
