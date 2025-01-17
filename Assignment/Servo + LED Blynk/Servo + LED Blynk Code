@@ -1,0 +1,60 @@
+#define BLYNK_PRINT Serial
+
+/* Fill in information from Blynk Device Info here */
+#define BLYNK_TEMPLATE_ID "TMPL34ULlo5rJ"
+#define BLYNK_TEMPLATE_NAME "Servo Control"
+#define BLYNK_AUTH_TOKEN "rKXqDCyNPiqWmtQ15cIV5gnzF9RFdXGV"
+
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+#include <ESP32Servo.h> // Include the Servo library
+
+Servo myServo;  // Create a Servo object
+
+char ssid[] = "WiFi";  // Your Wi-Fi SSID
+char pass[] = "Enthinaa";  // Your Wi-Fi password
+
+const int ledPin = 2;  // GPIO pin for LED (Change to your desired pin)
+
+BlynkTimer timer;
+
+void setup()
+{
+  Serial.begin(9600);
+
+  // Initialize Blynk connection
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+
+  // Attach the servo to a specific pin (e.g., GPIO 18 on ESP32)
+  myServo.attach(18);
+
+  // Set servo to the initial position (e.g., 0 degrees)
+  myServo.write(0);
+
+  // Initialize LED pin
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW); // Turn LED off initially
+}
+
+BLYNK_WRITE(V0)
+{
+  int angle = param.asInt(); // Get the angle value from the Blynk slider
+  myServo.write(angle);      // Set servo to the received angle
+  Serial.print("Servo Angle: ");
+  Serial.println(angle);
+}
+
+BLYNK_WRITE(V1)
+{
+  int ledState = param.asInt(); // Get the value from the Blynk switch (0 or 1)
+  digitalWrite(ledPin, ledState); // Turn the LED on/off
+  Serial.print("LED State: ");
+  Serial.println(ledState ? "ON" : "OFF");
+}
+
+void loop()
+{
+  Blynk.run();
+  timer.run();
+}
