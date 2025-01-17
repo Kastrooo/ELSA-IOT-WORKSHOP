@@ -1,9 +1,9 @@
 #define BLYNK_PRINT Serial
 
 /* Fill in information from Blynk Device Info here */
-#define BLYNK_TEMPLATE_ID "TMPL34ULlo5rJ"
-#define BLYNK_TEMPLATE_NAME "Servo Control"
-#define BLYNK_AUTH_TOKEN "rKXqDCyNPiqWmtQ15cIV5gnzF9RFdXGV"
+#define BLYNK_TEMPLATE_ID "xxxxxxxxxxxxxx"
+#define BLYNK_TEMPLATE_NAME "xxxxxxxxxxxxxx"
+#define BLYNK_AUTH_TOKEN "xxxxxxxxxxxxxx"
 
 #include <WiFi.h>
 #include <WiFiClient.h>
@@ -12,10 +12,10 @@
 
 Servo myServo;  // Create a Servo object
 
-char ssid[] = "WiFi";  // Your Wi-Fi SSID
-char pass[] = "Enthinaa";  // Your Wi-Fi password
+char ssid[] = "";  // Your Wi-Fi SSID
+char pass[] = "";  // Your Wi-Fi password
 
-const int ledPin = 2;  // GPIO pin for LED (Change to your desired pin)
+const int ledPin = 2;  // GPIO pin for LED (Change to your desired pin) Pin 2 is Internal LED
 
 BlynkTimer timer;
 
@@ -26,10 +26,10 @@ void setup()
   // Initialize Blynk connection
   Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
 
-  // Attach the servo to a specific pin (e.g., GPIO 18 on ESP32)
+  // Attach the servo to a specific pin (GPIO 18 on ESP32)
   myServo.attach(18);
 
-  // Set servo to the initial position (e.g., 0 degrees)
+  // Set servo to the initial position (0 degrees)
   myServo.write(0);
 
   // Initialize LED pin
