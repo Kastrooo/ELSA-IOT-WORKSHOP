@@ -26,12 +26,12 @@ Here’s a list of some of the experiments included in this repository:
 
 #### **1. Sensor-Based Experiments**
 - **IR Sensor**: Detect motion or obstacles using an IR sensor.
-- **Ultrasonic Sensor**: Measure distance with an ultrasonic sensor (HC-SR04).
-- **DHT Sensor**: Read temperature and humidity using DHT11/DHT22.
+- **Ultrasonic Sensor**: Measure distance with an ultrasonic sensor.
+- **DHT Sensor**: Read temperature and humidity using DHT11.
 
 #### **2. Actuator Control**
 - **Servo Motor**: Control servo motor positions using a slider or predefined angles.
-- **LCD Display**: Display text on an I2C LCD (16x2 or 20x4).
+- **LCD Display**: Display text on an I2C LCD (16x2).
 
 #### **3. IoT-Based Projects**
 - **Blynk Integration**: 
@@ -42,7 +42,7 @@ Here’s a list of some of the experiments included in this repository:
   - Examples include servo control and LED toggling.
 
 #### **4. Combined Projects**
-- **Multi-Sensor Dashboard**: Monitor multiple sensors (e.g., ultrasonic and DHT) and control actuators via a single interface like Blynk or RemoteXY.
+- **Multi-Sensor Dashboard**: Monitor multiple sensors (ultrasonic and DHT) and control actuators via a single interface like Blynk or RemoteXY.
 
 ---
 
@@ -55,6 +55,8 @@ Here’s a list of some of the experiments included in this repository:
   - `Servo.h`
   - `BlynkSimpleEsp32.h`
   - `LiquidCrystal_I2C.h`
+  - `RemoteXY.h`
+  - `newping.h`
 
 ---
 
