@@ -1,0 +1,21 @@
+#include <LCD_I2C.h>
+
+LCD_I2C lcd(0x27, 16, 2); // Default address of most PCF8574 modules, change according
+
+void setup()
+{
+    lcd.begin(); // If you are using more I2C devices using the Wire library use lcd.begin(false)
+                 // this stop the library(LCD_I2C) from calling Wire.begin()
+    lcd.backlight();
+}
+
+void loop()
+{
+    lcd.print("     Hello"); // You can make spaces using well... spaces
+    lcd.setCursor(5, 1); // Or setting the cursor in the desired position.
+    lcd.print("World!");  //To Print The content
+    delay(500);  //To make delay
+
+    lcd.clear();  //To clear the display
+    delay(500);  //To make Delay
+}
