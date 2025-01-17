@@ -84,9 +84,9 @@ Here’s a list of some of the experiments included in this repository:
 
 Contributions, bug reports, and feature requests are welcome! If you’d like to add something to this repository, follow these steps:
 1. Fork this repository.
-2. Create a new branch (`git checkout -b feature-new-project`).
-3. Commit your changes (`git commit -am 'Add a new project'`).
-4. Push to the branch (`git push origin feature-new-project`).
+2. Clone your fork:
+   ```bash
+   git clone https://github.com/Kastrooo/ELSA-IOT-WORKSHOP.git
 5. Create a new Pull Request.
 
 ---
