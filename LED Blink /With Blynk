@@ -1,0 +1,41 @@
+#define BLYNK_PRINT Serial
+
+/* Fill in information from Blynk Device Info here */
+#define BLYNK_TEMPLATE_ID "xxxxxxxxxxxxxx"
+#define BLYNK_TEMPLATE_NAME "xxxxxxxxxxxxxx"
+#define BLYNK_AUTH_TOKEN "xxxxxxxxxxxxxx"
+
+#include <WiFi.h>
+#include <WiFiClient.h>
+#include <BlynkSimpleEsp32.h>
+
+char ssid[] = "";  // Your Wi-Fi SSID
+char pass[] = "";  // Your Wi-Fi password
+
+const int ledPin = 2;  // GPIO pin for LED (Change to your desired pin) Pin 2 is Internal LED
+
+BlynkTimer timer;
+
+void setup()
+{
+  // Initialize Blynk connection
+  Blynk.begin(BLYNK_AUTH_TOKEN, ssid, pass);
+
+  // Initialize LED pin
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW); // Turn LED off initially
+}
+
+BLYNK_WRITE(V1)
+{
+  int ledState = param.asInt(); // Get the value from the Blynk switch (0 or 1)
+  digitalWrite(ledPin, ledState); // Turn the LED on/off
+  Serial.print("LED State: ");
+  Serial.println(ledState ? "ON" : "OFF");
+}
+
+void loop()
+{
+  Blynk.run();
+  timer.run();
+}
